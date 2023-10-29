@@ -1,12 +1,17 @@
-To start the client run the following command
-<code>cd client</code>
-<code>npm run dev</code>
+##To start the client run the following command
+```
+cd client
+npm run dev
+```
+##To start the server run the following command
+###For dev enviroment
+```
+cd server
+npm run dev
+```
 
-To start the server run the following command
-<small>For dev enviroment</small>
-<code>cd server</code>
-<code>npm run dev</code>
-
-<small>For production enviroment</small>
-<code>cd server</code>
-<code>npm run prod</code>
+###For production enviroment
+```
+cd server
+npm run prod
+```
