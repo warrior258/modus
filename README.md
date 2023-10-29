@@ -16,7 +16,7 @@ cd server
 npm run prod
 ```
 
-### For testing
+## For testing
 ```
 cd server
 npm run test
