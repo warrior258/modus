@@ -115,7 +115,7 @@ const AllContacts = () => {
           editContactloading={editContactloading}
         />
       )}
-      <section className="mx-auto max-w-6xl mt-10 px-4">
+      <section className="mx-auto max-w-6xl mt-5 px-4">
         <div className="flex items-start justify-between">
           <p className="text-xl font-semibold text-gray-800 mb-4">
             All Contacts
