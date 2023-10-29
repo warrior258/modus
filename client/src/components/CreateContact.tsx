@@ -24,7 +24,7 @@ const CreateContact = ({setOpenCreate, handleCreateData, createContactloading}: 
   });
 
   return (
-    <div className="w-full h-[calc(100vh_-_56px)] absolute bg-black/30 flex justify-center items-center">
+    <div className="w-full h-[calc(100vh_-_112px)] absolute bg-black/30 flex justify-center items-center">
       <div className="w-[400px] h-[300px] bg-white rounded-lg shadow-lg relative">
         <svg
         className="w-5 h-5 absolute right-4 top-2 cursor-pointer"

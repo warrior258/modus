@@ -31,6 +31,7 @@ const AllContacts = () => {
       console.log(error);
     } finally {
       setLoading(false);
+      setSearch("")
     }
   };
 
@@ -43,7 +44,6 @@ const AllContacts = () => {
     try {
       await Instance.delete(`contact/${contact.contactID}`);
       getAllContacts();
-      setSearch("")
     } catch (error) {
       console.log(error);
     }
@@ -95,7 +95,7 @@ const AllContacts = () => {
   }, []);
 
   if(loading){
-    return <p className="w-full h-[calc(100vh_-_56px)] grid place-items-center">Loading...</p>
+    return <p className="w-full h-[calc(100vh_-_112px)] grid place-items-center font-bold text-gray-600">Loading...</p>
   }
 
   return (
