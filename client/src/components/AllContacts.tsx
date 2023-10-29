@@ -52,8 +52,14 @@ const AllContacts = () => {
     contact: Contact
   ) => {
     e.preventDefault();
+
     try {
-      await Instance.patch(`contact/${contact.contactID}`, contact);
+      await Instance.patch(`contact/${contact.contactID}`, {
+        firstName: contact.firstName,
+        lastName: contact.lastName,
+        email: contact.email,
+        phoneNo: contact.phoneNo,
+      });
       getAllContacts();
       setOpenEdit(false);
     } catch (error) {

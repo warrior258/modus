@@ -4,7 +4,9 @@ const validateReqData = (req, res, next) => {
   // Validating the request body
   if (Object.keys(req.body).length === 0) {
     return res.status(400).send("No body received");
-  } 
+  } else if(Object.keys(req.body).length > 4) {
+    return res.status(400).send("Received unwanted data");
+  }
 
   // Check for required fields
   const requiredKeys = ["firstName", "lastName", "email", "phoneNo"];
