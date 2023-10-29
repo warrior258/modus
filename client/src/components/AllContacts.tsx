@@ -14,6 +14,8 @@ type Contact = {
 
 const AllContacts = () => {
   const [loading, setLoading] = useState<boolean>(false);
+  const [createContactloading, setCreateContactLoading] = useState<boolean>(false);
+  const [editContactloading, setEditContactLoading] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [singleContact, setSingleContact] = useState<Contact | undefined>();
@@ -52,7 +54,7 @@ const AllContacts = () => {
     contact: Contact
   ) => {
     e.preventDefault();
-
+    setEditContactLoading(true);
     try {
       await Instance.patch(`contact/${contact.contactID}`, {
         firstName: contact.firstName,
@@ -65,6 +67,8 @@ const AllContacts = () => {
     } catch (error) {
       alert("Enable to edit data");
       console.log(error);
+    } finally {
+      setEditContactLoading(false)
     }
   };
 
@@ -73,6 +77,7 @@ const AllContacts = () => {
     contact: Contact
   ) => {
     e.preventDefault();
+    setCreateContactLoading(true);
     try {
       await Instance.post("contact", contact);
       getAllContacts();
@@ -80,6 +85,8 @@ const AllContacts = () => {
     } catch (error) {
       alert("Enable to create data");
       console.log(error);
+    } finally {
+      setCreateContactLoading(false);
     }
   };
 
@@ -97,6 +104,7 @@ const AllContacts = () => {
         <CreateContact
           setOpenCreate={setOpenCreate}
           handleCreateData={handleCreateData}
+          createContactloading={createContactloading}
         />
       )}
       {openEdit && (
@@ -104,6 +112,7 @@ const AllContacts = () => {
           singleContact={singleContact}
           setOpenEdit={setOpenEdit}
           handleEditData={handleEditData}
+          editContactloading={editContactloading}
         />
       )}
       <section className="mx-auto max-w-6xl mt-10 px-4">

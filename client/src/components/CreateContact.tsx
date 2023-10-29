@@ -10,10 +10,11 @@ type Contact = {
 type Props = {
     setOpenCreate: Function;
     handleCreateData: Function;
+    createContactloading: boolean
 }
 
 
-const CreateContact = ({setOpenCreate, handleCreateData}: Props) => {
+const CreateContact = ({setOpenCreate, handleCreateData, createContactloading}: Props) => {
 
   const [createContact, setCreateContact] = useState<Contact>({
     firstName: '',
@@ -69,7 +70,7 @@ const CreateContact = ({setOpenCreate, handleCreateData}: Props) => {
             onChange={(e) => setCreateContact({...createContact, phoneNo: e.target.value})}
             required
           />
-          <button className="px-4 py-1.5 text-sm rounded bg-blue-500 text-white font-semibold">
+          <button disabled={createContactloading} className="px-4 py-1.5 text-sm rounded bg-blue-500 text-white font-semibold">
             Submit
           </button>
         </form>

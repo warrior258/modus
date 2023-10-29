@@ -12,9 +12,10 @@ type Props = {
   singleContact : Contact | undefined;
   setOpenEdit: Function;
   handleEditData: Function
+  editContactloading: boolean
 }
 
-const EditContact = ({singleContact, setOpenEdit, handleEditData}: Props) => {
+const EditContact = ({singleContact, setOpenEdit, handleEditData, editContactloading}: Props) => {
 
   const [editContact, setEditContact] = useState<Contact | undefined>(singleContact);
 
@@ -69,7 +70,7 @@ const EditContact = ({singleContact, setOpenEdit, handleEditData}: Props) => {
             onChange={(e) => setEditContact((prev) => (prev ? {...prev, phoneNo: e.target.value} : undefined))}
             required
           />
-          <button className="px-4 py-1.5 text-sm rounded bg-blue-500 text-white font-semibold">
+          <button disabled={editContactloading} className="px-4 py-1.5 text-sm rounded bg-blue-500 text-white font-semibold">
             Submit
           </button>
         </form>
